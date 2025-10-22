@@ -4,14 +4,17 @@
 
 package com.mycompany.cafeapp;
 
-/**
- *
- * @author konev
- */
 public class CafeApp {
 
     public static void main(String[] args) {
+        OrderSubject order = new OrderSubject();
+
+        order.addObserver(new EmployeeObserver("Barista"));
+        order.addObserver(new EmployeeObserver("Waiter"));
+
         CustomDrink customDrink = new CustomDrink.Builder("coffee").milk().sugar().build();
-        System.out.println(customDrink +" in "+CafeConfig.getInstance().getCafeName());
+        String msg = customDrink +" in "+CafeConfig.getInstance().getCafeName();
+
+        order.notifyAll(msg);
     }
 }
