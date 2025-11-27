@@ -13,6 +13,8 @@ public class CustomDrink {
         this.caramel = b.caramel;
     }
 
+    protected CustomDrink() {}
+
     public String toString() {
         return DrinkFactory.createDrink(base).serve() +
                 (milk ? ", milk" : "") +
