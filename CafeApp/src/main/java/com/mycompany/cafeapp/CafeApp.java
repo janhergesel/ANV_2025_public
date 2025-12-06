@@ -29,7 +29,6 @@ public class CafeApp {
                 order,
                 coffee + " in " + cafeName
         );
-
         Command teaOrder = new OrderCommand(
                 order,
                 tea + " in " + cafeName
@@ -58,5 +57,18 @@ public class CafeApp {
 
         payByCard.execute();
         payByCash.execute();
+
+        DrinkOrder mobileOrder = new DrinkOrder();
+        mobileOrder.add(new Coffee());
+        mobileOrder.add(new Tea());
+
+        Command mobileOrderCommand = new OrderCommand(
+                order,
+                "New mobile app order created"
+        );
+        mobileOrderCommand.execute();
+        mobileOrder.prepare();
     }
 }
+
+
